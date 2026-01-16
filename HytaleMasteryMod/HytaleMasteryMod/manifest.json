@@ -1,0 +1,9 @@
+{
+  "Group": "com.example",
+  "Name": "MasteryPlugin",
+  "Version": "1.0.0",
+  "Description": "Adds mastery progression",
+  "Main": "com.example.plugin.MasteryPlugin",
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true
+}
