@@ -1,0 +1,16 @@
+package com.example.plugin;
+
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import javax.annotation.Nonnull;
+
+public class MasteryPlugin extends JavaPlugin {
+    public MasteryPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+    }
+
+    protected void setup() {
+        super.setup();
+        this.getCommandRegistry().registerCommand(new MasteryCommand("hello", "An example command", false));
+    }
+}
