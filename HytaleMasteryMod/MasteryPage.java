@@ -16,7 +16,7 @@ public class MasteryPage extends BasicCustomUIPage {
     private final SwordsmanData data;
 
     public MasteryPage(@Nonnull PlayerRef playerRef, @Nonnull SwordsmanData data) {
-        super(playerRef, CustomPageLifetime. CanDismiss);
+        super(playerRef, CustomPageLifetime.CanDismiss);
         this.data = data;
     }
 
@@ -31,7 +31,7 @@ public class MasteryPage extends BasicCustomUIPage {
         int damageBonus = data.getDamageBonus();
 
         // Update UI elements with current values
-        cmd.set("#LevelText. Text", "Level: " + level);
+        cmd.set("#LevelText.Text", "Level: " + level);
         cmd.set("#ExpText.Text", "Exp: " + progress + " / 100");
         cmd.set("#DamageText.Text", "Sword Damage: +" + damageBonus);
 
