@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+out/
+bin/
+target/
+
+# Logs
+*.log
