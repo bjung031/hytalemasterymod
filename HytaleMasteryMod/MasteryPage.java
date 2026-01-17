@@ -21,9 +21,9 @@ public class MasteryPage extends BasicCustomUIPage {
     }
 
     @Override
-    public void build(@Nonnull UICommandBuilder cmd) {
+    public void build(@Nonnull UICommandBuilder builder) {
         // Load the UI layout file
-        cmd.append("masterypage.ui");
+        builder.append("masterypage.ui");
 
         // Set dynamic values
         int level = data.getLevel();
@@ -31,14 +31,14 @@ public class MasteryPage extends BasicCustomUIPage {
         int damageBonus = data.getDamageBonus();
 
         // Update UI elements with current values
-        cmd.set("#LevelText.Text", "Level: " + level);
-        cmd.set("#ExpText.Text", "Exp: " + progress + " / 100");
-        cmd.set("#DamageText.Text", "Sword Damage: +" + damageBonus);
+        builder.set("#LevelText.Text", "Level: " + level);
+        builder.set("#ExpText.Text", "Exp: " + progress + " / 100");
+        builder.set("#DamageText.Text", "Sword Damage: +" + damageBonus);
 
         // Set bonus status text
         String bonusStatus = level >= 2
                 ? "Active:  +5 Flat Damage"
                 : "Level 2: +5 Flat Damage";
-        cmd.set("#BonusStatus.Text", bonusStatus);
+        builder.set("#BonusStatus.Text", bonusStatus);
     }
 }

@@ -4,6 +4,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
+import com.hypixel.hytale.server.core.entity.entities.player.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
@@ -27,7 +28,10 @@ public class MasteryCommand extends AbstractPlayerCommand {
         
         // Create and open the mastery page
         MasteryPage page = new MasteryPage(playerRef, data);
-        playerRef.getPageManager().openPage(page);
+        
+        // Get the Player from PlayerRef and open the custom page
+        Player player = playerRef.getPlayer();
+        player.getPageManager().openCustomPage(ref, store, page);
     }
 
 }
