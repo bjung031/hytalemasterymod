@@ -40,6 +40,8 @@ public class SwordHitListener {
         data.addExp(1);
         
         // Apply damage bonus if the player has reached level 2
+        // Note: The bonus applies to the hit that levels up the player,
+        // providing immediate feedback when reaching a new level
         int damageBonus = data.getDamageBonus();
         if (damageBonus > 0) {
             event.setDamage(event.getDamage() + damageBonus);
@@ -48,9 +50,15 @@ public class SwordHitListener {
 
     /**
      * Check if the item is a sword based on its type name
+     * Checks for common sword naming patterns while avoiding false positives
      */
     private boolean isSword(@Nonnull ItemType type) {
         String typeName = type.getName().toLowerCase();
-        return typeName.contains("sword");
+        // Check for sword but avoid matching items like "swordfish" or "crossword"
+        // by ensuring "sword" appears as a complete word or at the start/end
+        return typeName.equals("sword") || 
+               typeName.startsWith("sword_") || 
+               typeName.endsWith("_sword") ||
+               typeName.matches(".*\\bsword\\b.*");
     }
 }
