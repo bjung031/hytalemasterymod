@@ -4,5 +4,6 @@
   "Version": "1.0.0",
   "Description": "Adds mastery progression",
   "Main": "com.example.plugin.MasteryPlugin",
-  "DisabledByDefault": false
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true
 }
