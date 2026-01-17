@@ -1,5 +1,6 @@
 package com.example.plugin;
 
+import com.hypixel.hytale.component.ComponentKey;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
@@ -14,14 +15,17 @@ public class MasteryPlugin extends JavaPlugin {
     @Override
     protected void setup() {
         super.setup();
-        // Usually configs, systems, chunk registries, etc. go here — not commands
-
+        // Register the SwordsmanData component
+        this.getComponentRegistry().register(SwordsmanData.class, new ComponentKey<>("mastery:swordsman"));
     }
 
     @Override
     protected void start() {
-        // This is the right place for command registration
-        this.getCommandRegistry().registerCommand(new MasteryCommand("hello", "An example command", false));
+        // Register the mastery command
+        this.getCommandRegistry().registerCommand(new MasteryCommand("mastery", "Open sword mastery UI", false));
+        
+        // Register the sword hit listener
+        this.getEventBus().registerListener(new SwordHitListener());
     }
 
     // Optional: add this for cleanup/debugging
