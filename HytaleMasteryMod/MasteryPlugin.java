@@ -1,6 +1,5 @@
 package com.example.plugin;
 
-import com.hypixel.hytale.component.ComponentKey;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
@@ -15,8 +14,8 @@ public class MasteryPlugin extends JavaPlugin {
     @Override
     protected void setup() {
         super.setup();
-        // Register the SwordsmanData component
-        this.getComponentRegistry().register(SwordsmanData.class, new ComponentKey<>("mastery:swordsman"));
+        // Components are automatically managed by Hytale's component system
+        // No manual registration needed for SwordsmanData
     }
 
     @Override
