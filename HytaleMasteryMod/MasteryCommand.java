@@ -1,47 +1,35 @@
 package com.example.plugin;
 
 import com.hypixel.hytale.component.Ref;
-import com.hypixel. hytale.component.Store;
-import com.hypixel. hytale.server.core. command.system.CommandContext;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
-import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
-import com.hypixel.hytale.server.core.universe. world.World;
-import com. hypixel.hytale. server.core.universe.world. storage.EntityStore;
+import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.core.util.EventTitleUtil;
+import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
-import javax.annotation.Nonnull;
-
-/**
- * Command to open the mastery UI
- * Usage: /mastery
- */
 public class MasteryCommand extends AbstractPlayerCommand {
 
-    public MasteryCommand() {
-        super("mastery", "Opens the sword mastery UI");
+    public MasteryCommand(@NonNullDecl String name, @NonNullDecl String description, boolean requiresConfirmation) {
+        super(name, description, requiresConfirmation);
     }
 
     @Override
-    protected void execute(
-            @Nonnull CommandContext context,
-            @Nonnull Store<EntityStore> store,
-            @Nonnull Ref<EntityStore> ref,
-            @Nonnull PlayerRef playerRef,
-            @Nonnull World world
+    protected void execute(@NonNullDecl CommandContext commandContext,
+                           @NonNullDecl Store<EntityStore> store,
+                           @NonNullDecl Ref<EntityStore> ref,
+                           @NonNullDecl PlayerRef playerRef,
+                           @NonNullDecl World world
     ) {
-        // Get the player component using Player.getComponentType()
-        Player player = store.getComponent(ref, Player.getComponentType());
-
-        if (player == null) {
-            return;
-        }
-
-        // For now, just create a new SwordsmanData each time
-        // (until we figure out how to properly register and retrieve custom components)
-        SwordsmanData data = new SwordsmanData();
-
-        // Open the mastery UI
-        MasteryPage page = new MasteryPage(playerRef, data);
-        player.getPageManager().openCustomPage(ref, store, page);
+        EventTitleUtil.showEventTitleToPlayer(
+                playerRef,
+                Message.raw("HelloWorld"),
+                Message.raw("Test 2!"),
+                true
+        );
     }
+
 }

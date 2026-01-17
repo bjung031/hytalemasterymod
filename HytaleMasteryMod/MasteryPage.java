@@ -1,11 +1,11 @@
 package com.example.plugin;
 
-import com.hypixel.hytale.protocol.packets.interface_. CustomPageLifetime;
+import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.BasicCustomUIPage;
-import com.hypixel.hytale.server. core.ui.builder.UICommandBuilder;
-import com.hypixel.hytale.server. core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
 
-import javax.annotation. Nonnull;
+import javax.annotation.Nonnull;
 
 /**
  * Mastery UI Page - displays when player presses 'B'
@@ -38,7 +38,7 @@ public class MasteryPage extends BasicCustomUIPage {
         // Set bonus status text
         String bonusStatus = level >= 2
                 ? "Active:  +5 Flat Damage"
-                : "Level 2:  +5 Flat Damage";
+                : "Level 2: +5 Flat Damage";
         cmd.set("#BonusStatus.Text", bonusStatus);
     }
 }
