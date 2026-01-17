@@ -2,13 +2,11 @@ package com.example.plugin;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.hypixel.hytale.server.core.util.EventTitleUtil;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
 public class MasteryCommand extends AbstractPlayerCommand {
@@ -24,12 +22,12 @@ public class MasteryCommand extends AbstractPlayerCommand {
                            @NonNullDecl PlayerRef playerRef,
                            @NonNullDecl World world
     ) {
-        EventTitleUtil.showEventTitleToPlayer(
-                playerRef,
-                Message.raw("HelloWorld"),
-                Message.raw("Test 2!"),
-                true
-        );
+        // Get or create the player's sword mastery data
+        SwordsmanData data = store.getOrCreate(ref, SwordsmanData.class);
+        
+        // Create and open the mastery page
+        MasteryPage page = new MasteryPage(playerRef, data);
+        playerRef.getPageManager().openPage(page);
     }
 
 }

@@ -14,14 +14,17 @@ public class MasteryPlugin extends JavaPlugin {
     @Override
     protected void setup() {
         super.setup();
-        // Usually configs, systems, chunk registries, etc. go here — not commands
-
+        // Components are automatically managed by Hytale's component system
+        // No manual registration needed for SwordsmanData
     }
 
     @Override
     protected void start() {
-        // This is the right place for command registration
-        this.getCommandRegistry().registerCommand(new MasteryCommand("hello", "An example command", false));
+        // Register the mastery command
+        this.getCommandRegistry().registerCommand(new MasteryCommand("mastery", "Open sword mastery UI", false));
+        
+        // Register the sword hit listener
+        this.getEventBus().registerListener(new SwordHitListener());
     }
 
     // Optional: add this for cleanup/debugging

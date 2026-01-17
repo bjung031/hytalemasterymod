@@ -23,7 +23,7 @@ public class MasteryPage extends BasicCustomUIPage {
     @Override
     public void build(@Nonnull UICommandBuilder cmd) {
         // Load the UI layout file
-        cmd.append("Pages/MasteryPage.ui");
+        cmd.append("masterypage.ui");
 
         // Set dynamic values
         int level = data.getLevel();
